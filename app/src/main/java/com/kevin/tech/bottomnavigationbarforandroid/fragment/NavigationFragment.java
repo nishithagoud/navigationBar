@@ -120,7 +120,9 @@ public class NavigationFragment extends Fragment implements BottomNavigationBar.
 
     @Override
     public void onTabUnselected(int position) {
-
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        HomeFragment homeFragment = mHomeFragment.newInstance(getString(R.string.item_home));
+        transaction.replace(R.id.sub_content, homeFragment).commit();
     }
 
     @Override
